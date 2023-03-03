@@ -1,0 +1,42 @@
+groups:
+  - name: output_alert
+    rules:
+
+    - alert: output_rmse_critical_threshold
+      expr: error_data{source='RMSE'} >= 15
+      labels:
+        severity: critical
+
+    - alert: output_acc_critical_threshold
+      expr: error_data{source='ACC'} <= 60
+      labels:
+        serverity: critical
+
+
+  - name: input_alert
+    rules:
+    # - alert: input_nodes
+    #   expr: monitor_input_nodes{source='count_missing_input_nodes'} != 0
+    #   for: 1m
+    #   labels:
+    #     severity: warning
+
+    # input links decrease from trained links
+    - alert: infer_nodes_decreases
+      expr: monitor_input_nodes{source='count_missing_infer_nodes'} != 0
+      for: 1m
+      labels:
+        serverity: critical
+
+    - alert: null_infer_nodes_threshold
+      expr: link_percent_null >= 95
+      for: 2m
+      labels:
+        serverity: warning
+
+    # input links increase from trained links
+    - alert: missing_input_nodes_increase_alert
+      expr: missing_input_nodes > 10
+      for: 1m
+      labels:
+        serverity: critical

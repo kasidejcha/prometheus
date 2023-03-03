@@ -12,6 +12,7 @@ global:
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
   - 'alert.rules'
+  - 'metrics_alert.yml'
   # - "first.rules"
   # - "second.rules"
 
@@ -21,7 +22,7 @@ alerting:
   - scheme: http
     static_configs:
     - targets:
-      - "alertmanager:9093"
+      - "10.15.11.106:9093"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
@@ -42,7 +43,7 @@ scrape_configs:
     scrape_interval: 15s
 
     static_configs:
-      - targets: ['cadvisor:8080']
+      - targets: ['10.15.11.106:8080']
 
   - job_name: 'node-exporter'
 
@@ -50,4 +51,13 @@ scrape_configs:
     scrape_interval: 15s
   
     static_configs:
-      - targets: ['node-exporter:9100']
+      - targets: ['10.15.11.106:9100']
+  
+  - job_name: 'monitor_metrics'
+
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 15s
+  
+    static_configs:
+      - targets: ['10.15.11.106:8001']
+

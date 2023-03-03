@@ -1,10 +1,19 @@
+global:
+  resolve_timeout: 1m
+
 route:
-  receiver: 'slack'
+  receiver: 'admin'
 
 receivers:
-  - name: 'slack'
-#       slack_configs:
-#           - send_resolved: true
-#             username: '<username>'
-#             channel: '#<channel-name>'
-#             api_url: '<incomming-webhook-url>'
+  - name: 'admin'
+    email_configs:
+    - to: mizterbasoo@gmail.com
+      from: mizterbasoo@gmail.com
+      smarthost: smtp.gmail.com:587
+      auth_username: mizterbasoo@gmail.com
+      auth_identity: mizterbasoo@gmail.com
+      auth_password: fjrtvsxxxmgsdiju
+      send_resolved: true
+    webhook_configs:
+    - url: 'http://10.15.11.106:5000/alert'
+      send_resolved: false
