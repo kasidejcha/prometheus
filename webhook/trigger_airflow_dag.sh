@@ -1,0 +1,1 @@
+/home/kasidej/miniconda3/envs/stgcn/bin/python /home/kasidej/Documents/eta_deployment/training/airflow/script/trigger_dag.py

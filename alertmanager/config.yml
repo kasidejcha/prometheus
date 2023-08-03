@@ -1,7 +1,8 @@
 global:
-  resolve_timeout: 1m
+  resolve_timeout: 20s
 
 route:
+  group_wait: 0s
   receiver: 'admin'
 
 receivers:
@@ -13,7 +14,7 @@ receivers:
       auth_username: mizterbasoo@gmail.com
       auth_identity: mizterbasoo@gmail.com
       auth_password: fjrtvsxxxmgsdiju
-      send_resolved: true
+      send_resolved: false
     webhook_configs:
     - url: 'http://10.15.11.106:5000/alert'
       send_resolved: false

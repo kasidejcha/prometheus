@@ -1,0 +1,133 @@
+2023-03-12 00:48:53
+INFO:     172.25.0.4:52598 - "POST /alert HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/routing.py", line 706, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/kasidej/miniconda3/envs/stgcn/lib/python3.9/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/kasidej/Documents/prometheus/webhook/trigger_pipeline.py", line 20, in alert
+    alert_source = alert['labels']['source']
+KeyError: 'source'
+2023-03-12 02:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:48016 - "POST /alert HTTP/1.1" 200 OK
+2023-03-12 06:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:44178 - "POST /alert HTTP/1.1" 200 OK
+2023-03-12 10:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:43588 - "POST /alert HTTP/1.1" 200 OK
+2023-03-12 14:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:57038 - "POST /alert HTTP/1.1" 200 OK
+2023-03-12 18:10:00
+{'status': 'firing', 'labels': {'alertname': 'output_rmse_critical_threshold', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'severity': 'critical', 'source': 'RMSE'}, 'annotations': {}, 'startsAt': '2023-03-12T11:07:02.606Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=error_data%7Bsource%3D%22RMSE%22%7D+%3E%3D+15&g0.tab=1', 'fingerprint': '8d0b7dad6fcab620'}
+output_rmse_critical_threshold
+RMSE
+firing
+trigger hello_script
+hello world
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:56584 - "POST /alert HTTP/1.1" 200 OK
+2023-03-12 22:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-11T17:46:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:44282 - "POST /alert HTTP/1.1" 200 OK
+2023-03-13 02:10:00
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-12T17:03:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:54074 - "POST /alert HTTP/1.1" 200 OK
+2023-03-13 06:10:00
+{'status': 'firing', 'labels': {'alertname': 'output_rmse_critical_threshold', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'severity': 'critical', 'source': 'RMSE'}, 'annotations': {}, 'startsAt': '2023-03-12T23:07:02.606Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=error_data%7Bsource%3D%22RMSE%22%7D+%3E%3D+15&g0.tab=1', 'fingerprint': '8d0b7dad6fcab620'}
+output_rmse_critical_threshold
+RMSE
+firing
+trigger hello_script
+hello world
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-12T17:03:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:34284 - "POST /alert HTTP/1.1" 200 OK
+2023-03-13 08:40:00
+{'status': 'firing', 'labels': {'alertname': 'output_acc_critical_threshold', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': 'ACC'}, 'annotations': {}, 'startsAt': '2023-03-13T01:37:02.606Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=error_data%7Bsource%3D%22ACC%22%7D+%3C%3D+70&g0.tab=1', 'fingerprint': 'eea1de3da8e94e04'}
+output_acc_critical_threshold
+ACC
+firing
+trigger hello_script
+hello world
+{'status': 'firing', 'labels': {'alertname': 'output_rmse_critical_threshold', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'severity': 'critical', 'source': 'RMSE'}, 'annotations': {}, 'startsAt': '2023-03-13T01:37:02.606Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=error_data%7Bsource%3D%22RMSE%22%7D+%3E%3D+15&g0.tab=1', 'fingerprint': '8d0b7dad6fcab620'}
+output_rmse_critical_threshold
+RMSE
+firing
+trigger hello_script
+hello world
+{'status': 'firing', 'labels': {'alertname': 'timestep_sample_missing_routes', 'instance': '10.15.11.106:8001', 'job': 'monitor_metrics', 'monitor': 'my-project', 'serverity': 'critical', 'source': '1-37(27)'}, 'annotations': {}, 'startsAt': '2023-03-12T17:03:00.038Z', 'endsAt': '0001-01-01T00:00:00Z', 'generatorURL': 'http://f964cf73c099:9090/graph?g0.expr=timestep_sample_missing_routes+%3E%3D+60&g0.tab=1', 'fingerprint': 'bd3d60e65830d5e2'}
+timestep_sample_missing_routes
+1-37(27)
+firing
+trigger hello_script
+hello world
+INFO:     172.25.0.4:34342 - "POST /alert HTTP/1.1" 200 OK

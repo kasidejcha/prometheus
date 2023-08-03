@@ -1,16 +1,31 @@
 groups:
+  - name: system
+    rules:
+
+    # Alert for any instance that is unreachable for >2 minutes.
+    - alert: service_down
+      expr: up == 0
+      for: 2m
+      labels:
+        severity: page
+      annotations:
+        summary: "Instance {{ $labels.instance }} down"
+        description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 2 minutes."
+
   - name: output_alert
     rules:
 
     - alert: output_rmse_critical_threshold
-      expr: error_data{source='RMSE'} >= 15
+      expr: error_data{source='RMSE'} >= 50
+      for: 3h
       labels:
         severity: critical
 
-    - alert: output_acc_critical_threshold
-      expr: error_data{source='ACC'} <= 60
-      labels:
-        serverity: critical
+    # - alert: output_acc_critical_threshold
+    #   expr: error_data{source='ACC'} <= 60
+    #   for: 3h
+    #   labels:
+    #     severity: critical
 
 
   - name: input_alert
@@ -24,19 +39,30 @@ groups:
     # input links decrease from trained links
     - alert: infer_nodes_decreases
       expr: monitor_input_nodes{source='count_missing_infer_nodes'} != 0
-      for: 1m
       labels:
-        serverity: critical
+        severity: critical
 
-    - alert: null_infer_nodes_threshold
-      expr: link_percent_null >= 95
-      for: 2m
+    - alert: non_null_infer_nodes_threshold
+      expr: link_count_non_null < 10
       labels:
-        serverity: warning
+        severity: warning
 
     # input links increase from trained links
     - alert: missing_input_nodes_increase_alert
       expr: missing_input_nodes > 10
+      labels:
+        severity: critical
+
+    # timestep sample missing routes >= 65
+    - alert: timestep_sample_missing_routes
+      expr: timestep_sample_missing_routes >= 60
+      for: 5h
+      labels:
+        severity: critical
+
+    # timestep sample train routes
+    - alert: timestep_sample_train_routes
+      expr: timestep_sample_train_routes <= 55
       for: 1m
       labels:
-        serverity: critical
+        severity: critical
