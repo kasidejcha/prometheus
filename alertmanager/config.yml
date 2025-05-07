@@ -16,5 +16,5 @@ receivers:
       auth_password: fjrtvsxxxmgsdiju
       send_resolved: false
     webhook_configs:
-    - url: 'http://10.15.11.106:5000/alert'
+    - url: 'http://192.168.242.139:5000/alert'
       send_resolved: false

@@ -38,4 +38,4 @@ async def alert(request: Request):
 
 
 if __name__ == '__main__':
-    uvicorn.run("trigger_pipeline:app", host="10.15.11.106", port=5000, reload=True)
+    uvicorn.run("trigger_pipeline:app", host="192.168.242.139", port=5000, reload=True)

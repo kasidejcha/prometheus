@@ -21,7 +21,7 @@ alerting:
   - scheme: http
     static_configs:
     - targets:
-      - "10.15.11.106:9093"
+      - "192.168.242.139:9093"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
@@ -42,7 +42,7 @@ scrape_configs:
     scrape_interval: 15s
 
     static_configs:
-      - targets: ['10.15.11.106:8080']
+      - targets: ['192.168.242.139:8080']
 
   - job_name: 'node-exporter'
 
@@ -50,7 +50,7 @@ scrape_configs:
     scrape_interval: 15s
   
     static_configs:
-      - targets: ['10.15.11.106:9100']
+      - targets: ['192.168.242.139:9100']
   
   - job_name: 'monitor_metrics'
 
@@ -58,5 +58,14 @@ scrape_configs:
     scrape_interval: 60s
   
     static_configs:
-      - targets: ['10.15.11.106:8001']
+      - targets: ['192.168.242.139:8001']
 
+
+  - job_name: 'tsbgoplus_client_api_metrics'
+    scrape_interval: 15s
+    metrics_path: '/api/navigate/metrics'  # Custom path for metrics
+    scheme: 'https'
+    static_configs:
+      - targets: ['go.tsbcloud.co']
+    authorization:
+      credentials: '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'

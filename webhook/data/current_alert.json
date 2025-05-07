@@ -2,15 +2,15 @@
   "status": "firing",
   "labels": {
     "alertname": "missing_input_nodes_increase_alert",
-    "instance": "10.15.11.106:8001",
+    "instance": "192.168.242.139:8001",
     "job": "monitor_metrics",
     "monitor": "my-project",
     "severity": "critical",
-    "source": "z0100z5089"
+    "source": "z4116z4168"
   },
   "annotations": {},
-  "startsAt": "2023-08-17T05:32:00.038Z",
+  "startsAt": "2025-05-06T13:04:00.038Z",
   "endsAt": "0001-01-01T00:00:00Z",
-  "generatorURL": "http://f964cf73c099:9090/graph?g0.expr=missing_input_nodes+%3E+10&g0.tab=1",
-  "fingerprint": "e2a818c6d57c5984"
+  "generatorURL": "http://988c9d12bfa0:9090/graph?g0.expr=missing_input_nodes+%3E+10&g0.tab=1",
+  "fingerprint": "77701b75011b2e1e"
 }

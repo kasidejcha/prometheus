@@ -16,13 +16,13 @@ groups:
     rules:
 
     - alert: output_rmse_critical_threshold
-      expr: error_data{source='RMSE'} >= 50
-      for: 3h
+      expr: error_data{source='RMSE'} >= 35
+      for: 1h
       labels:
         severity: critical
 
-    # - alert: output_acc_critical_threshold
-    #   expr: error_data{source='ACC'} <= 60
+    # - alert: output_mape_critical_threshold
+    #   expr: error_data{source='MAPE'} >= 35
     #   for: 3h
     #   labels:
     #     severity: critical
